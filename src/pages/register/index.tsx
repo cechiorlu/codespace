@@ -1,8 +1,8 @@
 import React from 'react';
 import { Flex, Box, Link, Text, Button, Image, Select } from '@chakra-ui/react'
 import { Formik, Form, Field } from 'formik';
-import { InputField } from '../components/InputField';
-import { SelectField } from '../components/selectField'
+import { InputField } from '../../components/InputField';
+import { SelectField } from '../../components/SelectField'
 
 
 interface signupProps {
@@ -28,7 +28,7 @@ export const signup: React.FC<signupProps> = ({ }) => {
                 <Text> Logo </Text>
                 <Flex width='300px' alignItems='center' justifyContent='flex-start'>
                     <Text>Already have an account?</Text>
-                    <Link>Sign Up</Link>
+                    <Link>Log In</Link>
                 </Flex>
             </Flex>
             <Flex

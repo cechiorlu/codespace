@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Box, Link, Text, Button, Image, Select } from '@chakra-ui/react'
 import { Formik, Form, Field } from 'formik';
-import { InputField } from '../components/InputField';
+import { InputField } from '../../components/InputField';
 
 
 interface passwordProps {

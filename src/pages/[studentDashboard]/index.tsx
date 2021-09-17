@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Box, Text, Button, Image } from '@chakra-ui/react'
-import { Sidebar } from '../components/Sidebar'
+import { Sidebar } from '../../components/Sidebar'
 import { BellIcon } from '@chakra-ui/icons'
 
 
@@ -22,7 +22,7 @@ export const studentDashboard: React.FC<studentDashboardProps> = ({ }) => {
                 bgColor='white'
                 mx='auto'
             >
-                <Flex>
+                <Flex width='100%' justifyContent='space-between'>
                     <Text>Overview</Text>
                     <BellIcon />
                 </Flex>

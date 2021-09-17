@@ -6,6 +6,7 @@ import {
     Select,
     FormErrorMessage,
 } from "@chakra-ui/react";
+import { TriangleDownIcon } from '@chakra-ui/icons'
 
 type SelectFieldProps = InputHTMLAttributes<HTMLSelectElement> & {
     label: string | null;
@@ -28,7 +29,7 @@ export const SelectField: React.FC<SelectFieldProps> = ({
     return (
         <FormControl isInvalid={!!error}>
             {label ? <FormLabel htmlFor={field.name}>{label}</FormLabel> : null}
-            <Select {...field} {...props} id={field.name}>
+            <Select icon={<TriangleDownIcon fontSize='1rem' />} {...field} {...props} id={field.name}>
                 {options.map((option, i) => {
                     <option value={option}> { option } </option>
                 })}
