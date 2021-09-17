@@ -25,6 +25,7 @@ const Index = () => (
     alignItems="center"
     justifyContent="flex-start"
     bgColor='white'
+    mx='auto'
   >
     <Flex
       width='100%'
@@ -37,7 +38,7 @@ const Index = () => (
         <Link>Contact us</Link>
         <Link>Features</Link>
       </Flex>
-      <Button>SIGN UP</Button>
+      <Link>SIGN UP</Link>
     </Flex>
     <Flex
       width='100%'

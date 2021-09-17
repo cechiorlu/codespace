@@ -5,11 +5,11 @@ import { InputField } from '../components/InputField';
 import { SelectField } from '../components/selectField'
 
 
-interface signupProps {
+interface loginProps {
 
 }
 
-export const signup: React.FC<signupProps> = ({ }) => {
+export const login: React.FC<loginProps> = ({ }) => {
     return (
         <Flex
             height='100vh'
@@ -27,7 +27,7 @@ export const signup: React.FC<signupProps> = ({ }) => {
             >
                 <Text> Logo </Text>
                 <Flex width='300px' alignItems='center' justifyContent='flex-start'>
-                    <Text>Already have an account?</Text>
+                    <Text>Don't have an account?</Text>
                     <Link>Sign Up</Link>
                 </Flex>
             </Flex>
@@ -35,39 +35,37 @@ export const signup: React.FC<signupProps> = ({ }) => {
                 width='100%'
             >
                 <Box>
-                    <Text textStyle='h1'>Begin your coding journey</Text>
+                    <Text textStyle='h1'>Welcome back to your dashboard</Text>
                     <Text textStyle=''>
-                        Let's start by choosing your role
+                        hello
                     </Text>
 
                     <Box>
-                        <Formik initialValues={{ email: "", name: "", role: "" }}
-                            onSubmit={async ({ email, name, role }) => {
-                                console.log(name, email, role)
+                        <Formik initialValues={{ email: "", password: "" }}
+                            onSubmit={async ({ email, password }) => {
+                                console.log(password, email)
                             }}
 
                         >
                             {({ isSubmitting }) => (
                                 <Form>
                                     <InputField
-                                        name="name"
-                                        placeholder="Enter full name"
-                                        label="Full name"
+                                        name="email"
+                                        placeholder="Enter email address"
+                                        label="Email"
+                                        type="email"
                                     />
                                     <Box mt={4}>
-                                        <InputField name="email"
-                                            placeholder="Enter email address"
-                                            label="Email"
-                                            type="email"
+                                        <InputField name="password"
+                                            placeholder="Enter password"
+                                            label="Password"
+                                            type="password"
                                         />
                                     </Box>
-                                    <Box mt={4}>
-                                        <SelectField name="role"
-                                            placeholder="Select role"
-                                            label="Role"
-                                            options={['Student', 'Teacher']}
-                                        />
-                                    </Box>
+                                    <Flex mt={2}>
+                                        <Text>Can't remember your password? </Text>
+                                        <Link>Reset Password</Link>
+                                    </Flex>
 
                                     <Button
                                         mt={4}
@@ -79,7 +77,7 @@ export const signup: React.FC<signupProps> = ({ }) => {
                                             textAlign: 'center'
                                         }}
                                     >
-                                        SIGN UP FOR FREE
+                                        LOG IN
                                     </Button>
 
                                 </Form>
@@ -92,7 +90,8 @@ export const signup: React.FC<signupProps> = ({ }) => {
 
             </Flex>
         </Flex>
+
     );
 }
 
-export default signup
+export default login
