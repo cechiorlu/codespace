@@ -1,5 +1,4 @@
 import {
-  Link as ChakraLink,
   Flex,
   Box,
   Text,
@@ -11,9 +10,9 @@ import {
   ListIcon,
   ListItem,
 } from '@chakra-ui/react'
+import NextLink from 'next/link'
 import { CheckCircleIcon, LinkIcon } from '@chakra-ui/icons'
 
-import { Container } from '../components/Container'
 import next from 'next'
 
 
@@ -34,11 +33,11 @@ const Index = () => (
     >
       <Text> Logo </Text>
       <Flex width='300px' alignItems='center' justifyContent='flex-start'>
-        <Link>Support</Link>
-        <Link>Contact us</Link>
-        <Link>Features</Link>
+        <Link textStyle='link' _hover={{ color: "rgba(0, 0, 0, 1)" }}>Support</Link>
+        <Link textStyle='link' _hover={{ color: "rgba(0, 0, 0, 1)" }}>Contact us</Link>
+        <Link textStyle='link' _hover={{ color: "rgba(0, 0, 0, 1)" }}>Features</Link>
       </Flex>
-      <Link>SIGN UP</Link>
+      <Button>SIGN UP</Button>
     </Flex>
     <Flex
       width='100%'
