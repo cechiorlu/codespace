@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,700;1,400&display=swap');
-
 body {
     overflow-y: auto;
 }
@@ -23,7 +21,27 @@ body {
     background: #555;
 }
 
-@font-face {
-    font-family: "Gooddogcool";
-    src: url("/fonts/Gooddogcool.ttf") format("truetype");
+@font-face{
+    font-family:"rational-tw-semibold";
+    src: url("/fonts/rationaltw/rationaltwdisplaydemo-semibold.otf") format("opentype"),
+}
+
+@font-face{
+    font-family:"rational-tw-light";
+    src: url("/fonts/rationaltw/rationaltwdisplaydemo-light.otf") format("opentype"),
+}
+
+@font-face{
+    font-family:"metropolis-regular";
+    src: url("/fonts/metropolis/metropolis.regular.otf") format("opentype"),
+}
+
+@font-face{
+    font-family:"metropolis-semibold";
+    src: url("/fonts/metropolis/metropolis.semi-bold.otf") format("opentype"),
+}
+
+@font-face{
+    font-family:"metropolis-thin";
+    src: url("/fonts/metropolis/metropolis.thin.otf") format("opentype"),
 }

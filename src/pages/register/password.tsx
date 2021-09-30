@@ -12,7 +12,7 @@ export const password: React.FC<passwordProps> = ({ }) => {
     return (
         <Flex
             height='100vh'
-            width='80%'
+            width='85%'
             direction="column"
             alignItems="center"
             justifyContent="flex-start"
@@ -21,19 +21,21 @@ export const password: React.FC<passwordProps> = ({ }) => {
         >
             <Flex
                 width='100%'
-                justifyContent='flex-start'
+                justifyContent='space-between'
                 alignItems='center'
+                mt="30px"
             >
                 <Text> Logo </Text>
-                <Flex width='300px' alignItems='center' justifyContent='flex-start'>
-                    <Text>Don't have an account?</Text>
-                    <Link>Sign Up</Link>
-                </Flex>
+                <Text>Don't have an account? <Link>Sign Up</Link></Text>
             </Flex>
             <Flex
                 width='100%'
+                justifyContent="space-between"
+                height='366px'
+                my='auto'
+                alignItems='center'
             >
-                <Box>
+                <Box w="400px">
                     <Text textStyle='h1'>X</Text>
                     <Text textStyle=''>
                         Secure your account from malicious cases
@@ -48,12 +50,14 @@ export const password: React.FC<passwordProps> = ({ }) => {
                         >
                             {({ isSubmitting }) => (
                                 <Form>
-                                    <InputField
-                                        name="password"
-                                        placeholder="Enter password"
-                                        label="Password"
-                                        type="password"
-                                    />
+                                    <Box mt={4}>
+                                        <InputField
+                                            name="password"
+                                            placeholder="Enter password"
+                                            label="Password"
+                                            type="password"
+                                        />
+                                    </Box>
                                     <Box mt={4}>
                                         <InputField name="confirm"
                                             placeholder="Confirm Password"
@@ -65,11 +69,7 @@ export const password: React.FC<passwordProps> = ({ }) => {
                                         mt={4}
                                         type="submit"
                                         isLoading={isSubmitting}
-                                        style={{
-                                            width: '240px',
-                                            backgroundColor: '#276649',
-                                            textAlign: 'center'
-                                        }}
+                                        w="240px"
                                     >
                                         Done
                                     </Button>
@@ -80,7 +80,7 @@ export const password: React.FC<passwordProps> = ({ }) => {
                     </Box>
                 </Box>
 
-                <Image src='' />
+                <Image src='/images/pull-request.png' width="460px" height="295px" />
 
             </Flex>
 

@@ -13,7 +13,7 @@ export const signup: React.FC<signupProps> = ({ }) => {
     return (
         <Flex
             height='100vh'
-            width='80%'
+            width='85%'
             direction="column"
             alignItems="center"
             justifyContent="flex-start"
@@ -22,19 +22,22 @@ export const signup: React.FC<signupProps> = ({ }) => {
         >
             <Flex
                 width='100%'
-                justifyContent='flex-start'
+                justifyContent='space-between'
+                mt='30px'
                 alignItems='center'
             >
                 <Text> Logo </Text>
-                <Flex width='300px' alignItems='center' justifyContent='flex-start'>
-                    <Text>Already have an account?</Text>
-                    <Link>Log In</Link>
-                </Flex>
+                <Text>Already have an account? <Link>Log In</Link></Text>
+
             </Flex>
             <Flex
                 width='100%'
+                justifyContent="space-between"
+                height='366px'
+                my='auto'
+                alignItems='center'
             >
-                <Box>
+                <Box w="400px">
                     <Text textStyle='h1'>Begin your coding journey</Text>
                     <Text textStyle=''>
                         Let's start by choosing your role
@@ -49,11 +52,13 @@ export const signup: React.FC<signupProps> = ({ }) => {
                         >
                             {({ isSubmitting }) => (
                                 <Form>
-                                    <InputField
-                                        name="name"
-                                        placeholder="Enter full name"
-                                        label="Full name"
-                                    />
+                                    <Box mt={6}>
+                                        <InputField
+                                            name="name"
+                                            placeholder="Enter full name"
+                                            label="Full name"
+                                        />
+                                    </Box>
                                     <Box mt={4}>
                                         <InputField name="email"
                                             placeholder="Enter email address"
@@ -73,11 +78,7 @@ export const signup: React.FC<signupProps> = ({ }) => {
                                         mt={4}
                                         type="submit"
                                         isLoading={isSubmitting}
-                                        style={{
-                                            width: '240px',
-                                            backgroundColor: '#276649',
-                                            textAlign: 'center'
-                                        }}
+                                        w='280px'
                                     >
                                         SIGN UP FOR FREE
                                     </Button>
@@ -88,7 +89,7 @@ export const signup: React.FC<signupProps> = ({ }) => {
                     </Box>
                 </Box>
 
-                <Image src='' />
+                <Image src='/images/pull-request.png' width="460px" height="295px" />
 
             </Flex>
         </Flex>

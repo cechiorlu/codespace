@@ -10,7 +10,7 @@ export const recoverPassword: React.FC<recoverPasswordProps> = ({ }) => {
     return (
         <Flex
             height='100vh'
-            width='80%'
+            width='85%'
             direction="column"
             alignItems="center"
             justifyContent="flex-start"
@@ -19,23 +19,25 @@ export const recoverPassword: React.FC<recoverPasswordProps> = ({ }) => {
         >
             <Flex
                 width='100%'
-                justifyContent='flex-start'
+                justifyContent='space-between'
                 alignItems='center'
+                mt="30px"
             >
                 <Text> Logo </Text>
-                <Flex width='300px' alignItems='center' justifyContent='flex-start'>
-                    <Text>Don't have an account?</Text>
-                    <Link>Sign Up</Link>
-                </Flex>
+                <Text>Don't have an account? <Link>Sign Up</Link></Text>
             </Flex>
 
-            <Box>
+            <Box
+                width="500px"
+                m='auto'
+                textAlign='center'
+            >
                 <Text textStyle='h1'>Recover your password</Text>
                 <Text textStyle=''>
                     Provide the email address used to register your account
                 </Text>
 
-                <Box>
+                <Box w="100%">
                     <Formik initialValues={{ email: "" }}
                         onSubmit={async ({ email }) => {
                             console.log(email)
@@ -44,28 +46,30 @@ export const recoverPassword: React.FC<recoverPasswordProps> = ({ }) => {
                     >
                         {({ isSubmitting }) => (
                             <Form>
-                                <InputField name="email"
-                                    placeholder="Enter email address"
-                                    label="Email"
-                                    type="email"
-                                />
+                                <Box mt={5}>
+                                    <InputField name="email"
+                                        placeholder="Enter email address"
+                                        label="Email"
+                                        type="email"
+                                    />
+                                </Box>
 
-                                <Button
-                                    mt={4}
+                                {/* <Button
+                                    mt={3}
                                     type="submit"
                                     isLoading={isSubmitting}
-                                    style={{
-                                        width: '240px',
-                                        backgroundColor: '#276649',
-                                        textAlign: 'center'
-                                    }}
+                                    w="100px"
+                                    ml='auto'
                                 >
                                     Done
-                                </Button>
+                                </Button> */}
 
                             </Form>
                         )}
                     </ Formik>
+                </Box>
+                <Box mt={12}>
+                    <Text>Wrong Email address? Go Back</Text>
                 </Box>
             </Box>
         </Flex >

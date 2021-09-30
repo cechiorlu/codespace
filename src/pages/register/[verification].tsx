@@ -9,7 +9,7 @@ export const verification: React.FC<verificationProps> = ({ }) => {
     return (
         <Flex
             height='100vh'
-            width='80%'
+            width='85%'
             direction="column"
             alignItems="center"
             justifyContent="flex-start"
@@ -18,19 +18,27 @@ export const verification: React.FC<verificationProps> = ({ }) => {
         >
             <Flex
                 width='100%'
-                justifyContent='flex-start'
+                justifyContent='space-between'
                 alignItems='center'
+                mt="30px"
             >
                 <Text>Logo</Text>
             </Flex>
-            <Box>
+            <Flex
+                flexDirection="column"
+                w="588px"
+                h="588px"
+                m="auto"
+                alignItems="center"
+                height=""
+            >
                 <Text textStyle='h1'>Email Verification</Text>
                 <Text>A verification has been sent to the email <Text>user@mail.com</Text></Text>
-                <Image src='' />
+                <Image src='/images/mailbox.png' w="332px" h="297px" />
                 <Text>Wrong email address? <Text>Go back</Text></Text>
-            </Box>
+            </Flex>
         </Flex>
     );
 }
 
-export default [verification]
+export default verification

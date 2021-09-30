@@ -15,32 +15,56 @@ const theme = extendTheme({
     white: '#ffffff',
     black: '#16161D',
     blue: '#04033D',
-
+    stroke: '#F0F0F0'
   },
 
   components: {
     Button: {
       // 1. We can update the base styles
       baseStyle: {
-        fontWeight: "bold", // Normally, it is "semibold"
+        fontWeight: "semibold", // Normally, it is "semibold"
+        _focus: {
+          boxShadow:
+            "none",
+        },
+        borderRadius: "0px"
       },
       // 2. We can add a new button size or extend existing
       sizes: {
         xl: {
-          h: "56px",
-          fontSize: "lg",
-          px: "32px",
+          py: "15px",
+          // px: "32px",
         },
+        h: {
+          w: "50%",
+        },
+        f: {
+          w: '100%',
+        }
       },
       // 3. We can add a new visual variant
       variants: {
-        "with-shadow": {
-          bg: "red.400",
-          boxShadow: "0 0 2px 2px #efdfde",
+        outline: (props) => ({
+          bg: 'white',
+          color: 'blue',
+          border: "3px solid #02021c",
+          _hover: { color: "#02021c" },
+          _active: { color: "#02021c" },
+        }),
+
+        "box-outline": {
+          bg: 'white',
+          color: 'blue',
+          border: "2px solid #04033D",
+          _hover: { color: "#02021c" },
+          _active: { color: "#02021c" },
         },
-        // 4. We can override existing variants
+
         solid: (props) => ({
-          bg: props.colorMode === "dark" ? "red.300" : "red.500",
+          bg: 'blue',
+          color: '#E5E5E5',
+          _hover: { bg: "#02021c" },
+          _active: { bg: "#02021c" }
         }),
       },
     },
@@ -76,7 +100,7 @@ const theme = extendTheme({
     },
 
     h1: {
-      fontFamily: "Rational TW Display DEMO",
+      fontFamily: "rational-tw-semibold",
       fontWeight: 600,
       fontSize: ['2rem', '3rem'],
       lineHeight: '160%',

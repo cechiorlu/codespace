@@ -12,7 +12,7 @@ export const login: React.FC<loginProps> = ({ }) => {
     return (
         <Flex
             height='100vh'
-            width='80%'
+            width='85%'
             direction="column"
             alignItems="center"
             justifyContent="flex-start"
@@ -21,19 +21,21 @@ export const login: React.FC<loginProps> = ({ }) => {
         >
             <Flex
                 width='100%'
-                justifyContent='flex-start'
+                justifyContent='space-between'
                 alignItems='center'
+                pt="30px"
             >
                 <Text> Logo </Text>
-                <Flex width='300px' alignItems='center' justifyContent='flex-start'>
-                    <Text>Don't have an account?</Text>
-                    <Link>Sign Up</Link>
-                </Flex>
+                <Text>Don't have an account?  <Link>Sign Up</Link></Text>
             </Flex>
             <Flex
                 width='100%'
+                justifyContent="space-between"
+                height='366px'
+                my='auto'
+                alignItems='center'
             >
-                <Box>
+                <Box width='400px' >
                     <Text textStyle='h1'>Welcome back to your dashboard</Text>
                     <Text textStyle=''>
                         hello
@@ -48,12 +50,14 @@ export const login: React.FC<loginProps> = ({ }) => {
                         >
                             {({ isSubmitting }) => (
                                 <Form>
-                                    <InputField
-                                        name="email"
-                                        placeholder="Enter email address"
-                                        label="Email"
-                                        type="email"
-                                    />
+                                    <Box mt={6}>
+                                        <InputField
+                                            name="email"
+                                            placeholder="Enter email address"
+                                            label="Email"
+                                            type="email"
+                                        />
+                                    </Box>
                                     <Box mt={4}>
                                         <InputField name="password"
                                             placeholder="Enter password"
@@ -61,20 +65,14 @@ export const login: React.FC<loginProps> = ({ }) => {
                                             type="password"
                                         />
                                     </Box>
-                                    <Flex mt={2}>
-                                        <Text>Can't remember your password? </Text>
-                                        <Link>Reset Password</Link>
-                                    </Flex>
+                                    <Text textStyle="" mt={2}>Can't remember your password? <Link>Reset Password</Link></Text>
+
 
                                     <Button
                                         mt={4}
                                         type="submit"
                                         isLoading={isSubmitting}
-                                        style={{
-                                            width: '240px',
-                                            backgroundColor: '#276649',
-                                            textAlign: 'center'
-                                        }}
+                                        w="280px"
                                     >
                                         LOG IN
                                     </Button>
@@ -85,7 +83,7 @@ export const login: React.FC<loginProps> = ({ }) => {
                     </Box>
                 </Box>
 
-                <Image src='' />
+                <Image src='/images/pull-request.png' width="460px" height="295px" />
 
             </Flex>
         </Flex>
