@@ -27,7 +27,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ active }) => {
                 borderLeftStyle="solid"
                 borderLeftWidth="4px"
             >
-                <Link href="/" passHref>
+                <Link href="/">
                     <Home color={active === "home" ? "#04033D" : "#F0F0F0"} />
                 </Link>
             </Flex>

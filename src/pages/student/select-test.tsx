@@ -15,35 +15,55 @@ export const selectTest: React.FC<selectTestProps> = ({ }) => {
 
     return (
         <Flex>
-            <Sidebar />
+            <Sidebar active="home" />
             <Flex
                 height='100vh'
-                width='80%'
+                width='100%'
                 direction="column"
-                alignItems="center"
                 justifyContent="flex-start"
                 bgColor='white'
-                mx='auto'
+                pb="20px"
             >
-                <Flex width='100%' justifyContent='space-between'>
+                <Flex width='100%'
+                    justifyContent='space-between'
+                    py="20px"
+                    px="20px"
+                    alignItems="center"
+                    borderBottom="2px solid #F0F0F0"
+                >
                     <Button variant='link' onClick={() => router.back()}>
-                        <ArrowLeftIcon /> Go back
+                        <Image src="/images/arrow-left.png" w="13px" h="12px" /> Go back
                     </Button>
-                    <BellIcon />
+                    <Link href="">
+                        <Image src="/images/Bellicon.png" w="18px" h="21.6px" />
+                    </Link>
                 </Flex>
 
-                <Flex>
-                    <Flex direction="column">
+                <Flex justifyContent="space-between" mr="15px">
+                    {/* left menu */}
+                    <Flex direction="column"
+                        bgColor="stroke"
+                        width="30%"
+                        minHeight="calc(100vh - 110px)"
+                        mt="20px"
+                        p="20px"
+                    >
                         <Box>
                             <Text> Take Test </Text>
                             <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit reprehenderit odio non facilis, doloribus eaque aspernatur exercitationem explicabo consequuntur ratione labore repellat placeat ad nisi error obcaecati adipisci optio modi.</Text>
                         </Box>
                     </Flex>
-                    <Flex direction="column">
+
+                    {/* right menu */}
+                    <Flex direction="column"
+                        width="67.5%"
+                        mt="40px"
+                        justifyContent="flex-start"
+                    >
                         <Text>
                             Select your stack and language
                         </Text>
-                        <Box>
+                        <Box w="500px" mt={6}>
                             <Formik initialValues={{ stack: "", language: "", difficulty: "" }}
                                 onSubmit={async ({ stack, language, difficulty }) => {
                                     console.log(stack, language, difficulty)
@@ -64,23 +84,12 @@ export const selectTest: React.FC<selectTestProps> = ({ }) => {
                                                 options={['Javascript', 'Python', 'Golang', 'Java', 'C++']}
                                             />
                                         </Box>
-                                        <Box mt={4}>
-                                            <SelectField name="role"
-                                                placeholder="Select role"
-                                                label="Role"
-                                                options={['Student', 'Teacher']}
-                                            />
-                                        </Box>
 
                                         <Button
-                                            mt={4}
+                                            mt={9}
                                             type="submit"
                                             isLoading={isSubmitting}
-                                            style={{
-                                                width: '240px',
-                                                backgroundColor: '#276649',
-                                                textAlign: 'center'
-                                            }}
+                                            width="240px"
                                         >
                                             TAKE TEST
                                         </Button>
@@ -94,7 +103,7 @@ export const selectTest: React.FC<selectTestProps> = ({ }) => {
                 </Flex>
             </Flex>
 
-        </Flex>
+        </Flex >
     );
 }
 

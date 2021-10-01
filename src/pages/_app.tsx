@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import theme from '../theme'
 import { AppProps } from 'next/app'
 import './Global.css'
+import 'react-calendar-heatmap/dist/styles.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

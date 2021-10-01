@@ -1,10 +1,9 @@
 import React from 'react';
-import { Flex, Box, Text, Button,Tag, ListItem, UnorderedList, Code, useDisclosure } from '@chakra-ui/react'
-import { ArrowLeftIcon } from '@chakra-ui/icons'
-import { Sidebar } from '../../components/Sidebar'
+import { Flex, Box, Text, Button, Tag, ListItem, Image, UnorderedList, Code, useDisclosure } from '@chakra-ui/react'
+import Sidebar from '../../components/Sidebar'
 import { SubmitCode } from "../../components/Modals";
 import { useRouter } from 'next/router'
-
+import StopTimer from '../../components/StopTimer'
 
 interface testProps {
 
@@ -17,25 +16,40 @@ export const test: React.FC<testProps> = ({ }) => {
 
     return (
         <Flex>
-            <Sidebar />
+            <Sidebar active="home" />
             <Flex
                 height='100vh'
-                width='80%'
+                width='100%'
                 direction="column"
-                alignItems="center"
                 justifyContent="flex-start"
                 bgColor='white'
-                mx='auto'
+                pb="20px"
             >
-                <Flex width='100%' justifyContent='space-between'>
+                <Flex width='100%'
+                    justifyContent='space-between'
+                    py="20px"
+                    px="20px"
+                    alignItems="center"
+                    borderBottom="2px solid #F0F0F0"
+                >
                     <Button variant='link' onClick={() => router.back()}>
-                        <ArrowLeftIcon /> Go back
+                        <Image src="/images/arrow-left.png" w="13px" h="12px" /> Go back
                     </Button>
-                    Timer
+                    <Flex w="175px" justifyContent="space-between">
+                        <Text>Time Remaining  :</Text>
+                        <StopTimer initialTime={60 * 60 * 2500} />
+                    </Flex>
                 </Flex>
 
-                <Flex>
-                    <Flex direction="column">
+                <Flex justifyContent="space-between" mr="15px">
+                    {/* left menu */}
+                    <Flex direction="column"
+                        bgColor="stroke"
+                        width="30%"
+                        minHeight="calc(100vh - 110px)"
+                        mt="20px"
+                        p="20px"
+                    >
                         <Flex>
                             <Text> Merging Two Sorted Lists </Text>
                             <Tag>Easy</Tag>
@@ -76,15 +90,20 @@ export const test: React.FC<testProps> = ({ }) => {
                             </Box>
                         </Box>
                     </Flex>
-                    <Flex direction="column">
+                    {/* right menu */}
+                    <Flex direction="column"
+                        width="67.5%"
+                        mt="40px"
+                        justifyContent="flex-start"
+                    >
                         <SubmitCode isOpen={isOpen} onClose={onClose} />
                         <Box>
-                            <Box>
+                            <Box w="100%" h="420px">
                                 {/* codemirror */}
                                 codespace
                             </Box>
-                            <Flex>
-                                <Text>Test Created by: Prof. Adeyemi</Text>
+                            <Flex alignItems="center" justifyContent="space-between">
+                                <Text>Test Created by: <Text> Prof. Adeyemi </Text></Text>
                                 <Flex>
                                     <Button variant='ghost'>Run code</Button>
                                     <Button onClick={onOpen}>Submit code</Button>
