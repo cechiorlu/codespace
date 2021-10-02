@@ -4,6 +4,7 @@ import Sidebar from '../../components/Sidebar'
 import { SubmitCode } from "../../components/Modals";
 import { useRouter } from 'next/router'
 import StopTimer from '../../components/StopTimer'
+import CodeEditor from '../../components/CodeEditor'
 
 interface testProps {
 
@@ -99,11 +100,13 @@ export const test: React.FC<testProps> = ({ }) => {
                         <SubmitCode isOpen={isOpen} onClose={onClose} />
                         <Box>
                             <Box w="100%" h="420px">
-                                {/* codemirror */}
-                                codespace
+                                <CodeEditor />
                             </Box>
-                            <Flex alignItems="center" justifyContent="space-between">
-                                <Text>Test Created by: <Text> Prof. Adeyemi </Text></Text>
+                            <Flex alignItems="center" justifyContent="space-between" mt={4}>
+                                <Flex>
+                                    <Text pr={2}>Test Created by: </Text>
+                                    <Text> Prof. Adeyemi </Text>
+                                </Flex>
                                 <Flex>
                                     <Button variant='ghost'>Run code</Button>
                                     <Button onClick={onOpen}>Submit code</Button>
