@@ -14,6 +14,9 @@ export const test: React.FC<testProps> = ({ }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const router = useRouter()
 
+    const code = '// Insert code here';
+
+
 
     return (
         <Flex>
@@ -96,11 +99,12 @@ export const test: React.FC<testProps> = ({ }) => {
                         width="67.5%"
                         mt="40px"
                         justifyContent="flex-start"
+                        bgColor="stroKe"
                     >
                         <SubmitCode isOpen={isOpen} onClose={onClose} />
-                        <Box>
+                        <Box bgColor="white">
                             <Box w="100%" h="420px">
-                                <CodeEditor />
+                                <CodeEditor height="400px"/>
                             </Box>
                             <Flex alignItems="center" justifyContent="space-between" mt={4}>
                                 <Flex>
@@ -113,7 +117,6 @@ export const test: React.FC<testProps> = ({ }) => {
                                 </Flex>
                             </Flex>
                         </Box>
-
                     </Flex>
                 </Flex>
             </Flex>

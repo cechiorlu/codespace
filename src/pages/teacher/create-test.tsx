@@ -16,35 +16,56 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
 
     return (
         <Flex>
-            <Sidebar />
+            <Sidebar active="home" />
             <Flex
                 height='100vh'
-                width='80%'
+                width='100%'
                 direction="column"
-                alignItems="center"
                 justifyContent="flex-start"
                 bgColor='white'
-                mx='auto'
+                pb="20px"
             >
-                <Flex width='100%' justifyContent='space-between'>
+                <Flex width='100%'
+                    justifyContent='space-between'
+                    py="20px"
+                    px="20px"
+                    alignItems="center"
+                    borderBottom="2px solid #F0F0F0"
+                >
                     <Button variant='link' onClick={() => router.back()}>
-                        <ArrowLeftIcon /> Go back
+                        <Image src="/images/arrow-left.png" w="13px" h="12px" /> Go back
                     </Button>
-                    <BellIcon />
+                    <Link href="">
+                        <Image src="/images/Bellicon.png" w="18px" h="21.6px" />
+                    </Link>
                 </Flex>
 
-                <Flex>
-                    <Flex direction="column">
+
+                <Flex justifyContent="space-between" mr="15px">
+                    {/* left menu */}
+                    <Flex direction="column"
+                        bgColor="stroke"
+                        width="30%"
+                        minHeight="calc(100vh - 110px)"
+                        mt="20px"
+                        p="20px"
+                    >
                         <Box>
                             <Text> Courses </Text>
                             <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit reprehenderit odio non facilis, doloribus eaque aspernatur exercitationem explicabo consequuntur ratione labore repellat placeat ad nisi error obcaecati adipisci optio modi.</Text>
                         </Box>
                     </Flex>
-                    <Flex direction="column">
+
+                    {/* right menu */}
+                    <Flex direction="column"
+                        width="67.5%"
+                        mt="40px"
+                        justifyContent="flex-start"
+                    >
                         <Text>
                             Creating a Test
                         </Text>
-                        <Box>
+                        <Box w="500px" mt={6}>
                             <Formik initialValues={{ title: "", language: "", stack: "", difficulty: "" }}
                                 onSubmit={async ({ stack, language, difficulty }) => {
                                     console.log(stack, language, difficulty)
@@ -79,11 +100,7 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
                                             mt={4}
                                             type="submit"
                                             isLoading={isSubmitting}
-                                            style={{
-                                                width: '240px',
-                                                backgroundColor: '#276649',
-                                                textAlign: 'center'
-                                            }}
+                                            width="240px"
                                         >
                                             Create Test
                                         </Button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Flex, Box, Text, Button, Image, Table,
-    Thead, Tbody, Tr, Th, Td, TableCaption,
+    Thead, Tbody, Tr, Th, Td, TableCaption, Link
 } from '@chakra-ui/react'
 import { Sidebar } from '../../components/Sidebar'
 import { BellIcon, ArrowRightIcon } from '@chakra-ui/icons'
@@ -15,23 +15,37 @@ interface teacherDashboardProps {
 export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
     return (
         <Flex>
-            <Sidebar />
+            <Sidebar active="home" />
             <Flex
-                height='100vh'
-                width='80%'
+                width='100%'
                 direction="column"
                 alignItems="center"
                 justifyContent="flex-start"
                 bgColor='white'
-                mx='auto'
+                pb='20px'
             >
-                <Flex width='100%' justifyContent='space-between'>
+                <Flex width='100%'
+                    justifyContent='space-between'
+                    py="20px"
+                    px="20px"
+                    alignItems="center"
+                    borderBottom="2px solid #F0F0F0"
+                >
                     <Text>Dashboard</Text>
-                    <BellIcon />
+                    <Link href="">
+                        <Image src="/images/Bellicon.png" w="18px" h="21.6px" />
+                    </Link>
                 </Flex>
 
-                <Flex>
-                    <Flex direction="column">
+                <Flex justifyContent="space-between" mr="15px">
+                    {/* left menu */}
+                    <Flex direction="column"
+                        bgColor="stroke"
+                        width="30%"
+                        height="calc(100vh - 110px)"
+                        mt="20px"
+                        p="20px"
+                    >
                         <Box>
                             <Text>Test</Text>
                             <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit reprehenderit odio non facilis, doloribus eaque aspernatur exercitationem explicabo consequuntur ratione labore repellat placeat ad nisi error obcaecati adipisci optio modi.</Text>
@@ -41,8 +55,14 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                             <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit reprehenderit odio non facilis, doloribus eaque aspernatur exercitationem explicabo consequuntur ratione labore repellat placeat ad nisi error obcaecati adipisci optio modi.</Text>
                         </Box>
                     </Flex>
-                    <Flex direction="column">
-                        <Flex>
+
+                    {/* right menu */}
+                    <Flex direction="column"
+                        width="67.5%"
+                        mt="40px"
+                        justifyContent="space-between"
+                    >
+                        <Flex w="100%" h="208px" bgColor="blue" p="20px">
                             <Box>
                                 <Text>Hello Ifere</Text>
                                 <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis odio repudiandae ea, fugit atque sed reprehenderit impedit libero illo nisi alias. Placeat illum quia vero officia atque ab consequuntur officiis!</Text>
@@ -51,16 +71,16 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                                     <Button>Create Test</Button>
                                 </Flex>
                             </Box>
-                            <Image src='/' />
+                            <Image src='/images/teacher.png' w="336px" h="234px" style={{ transform: "translateY(-48px)" }} />
                         </Flex>
 
                         <Box>
-                            <Flex>
+                            <Flex w="100%" justifyContent="space-between">
                                 <Text>Created courses</Text>
                                 <Text>View more <ArrowRightIcon /></Text>
                             </Flex>
-                            <Flex>
-                                <Box>
+                            <Flex w="100%" justifyContent="space-between" mt={2}>
+                                <Box h="200px" px="10px" py="15px" w="49%" border="2px solid" borderColor="stroke">
                                     <Flex>
                                         <Text>Course Title</Text>
                                         <Text>Course level: </Text>
@@ -69,7 +89,7 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                                     <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aut mollitia laborum fugiat quibusdam. Deleniti, eius.</Text>
 
                                 </Box>
-                                <Box>
+                                <Box h="200px" px="10px" py="15px" w="49%" border="2px solid" borderColor="stroke">
                                     <Flex>
                                         <Text>Course Title</Text>
                                         <Text>Course level: </Text>
@@ -78,7 +98,9 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                                     <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aut mollitia laborum fugiat quibusdam. Deleniti, eius.</Text>
 
                                 </Box>
-                                <Box>
+                            </Flex>
+                            <Flex w="100%" justifyContent="space-between" mt={2}>
+                                <Box h="200px" px="10px" py="15px" w="49%" border="2px solid" borderColor="stroke">
                                     <Flex>
                                         <Text>Course Title</Text>
                                         <Text>Course level: </Text>
@@ -87,7 +109,7 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                                     <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aut mollitia laborum fugiat quibusdam. Deleniti, eius.</Text>
 
                                 </Box>
-                                <Box>
+                                <Box h="200px" px="10px" py="15px" w="49%" border="2px solid" borderColor="stroke">
                                     <Flex>
                                         <Text>Course Title</Text>
                                         <Text>Course level: </Text>
@@ -96,12 +118,11 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                                     <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aut mollitia laborum fugiat quibusdam. Deleniti, eius.</Text>
 
                                 </Box>
-
                             </Flex>
                         </Box>
 
                         <Box>
-                            <Flex>
+                            <Flex w="100%" justifyContent="space-between">
                                 <Text>Test Performance</Text>
                                 <Text>View More <ArrowRightIcon /></Text>
                             </Flex>
@@ -155,7 +176,7 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                 </Flex>
             </Flex>
 
-        </Flex>
+        </Flex >
     );
 }
 
