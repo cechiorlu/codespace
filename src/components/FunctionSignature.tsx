@@ -29,6 +29,7 @@ export const FunctionSignature: React.FC<FunctionSignatureProps> = ({ }) => {
                                 required
                             />
                             <SelectField name="language"
+                                value=''
                                 placeholder="Select language"
                                 label="Language"
                                 options={['Javascript', 'Python', 'Golang', 'Java', 'C++']}
