@@ -1,0 +1,47 @@
+body {
+    overflow-y:auto;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@font-face{
+    font-family:"rational-tw-semibold";
+    src: url("/fonts/rationaltw/rationaltwdisplaydemo-semibold.otf") format("opentype"),
+}
+
+@font-face{
+    font-family:"rational-tw-light";
+    src: url("/fonts/rationaltw/rationaltwdisplaydemo-light.otf") format("opentype"),
+}
+
+@font-face{
+    font-family:"metropolis-regular";
+    src: url("/fonts/metropolis/metropolis.regular.otf") format("opentype"),
+}
+
+@font-face{
+    font-family:"metropolis-semibold";
+    src: url("/fonts/metropolis/metropolis.semi-bold.otf") format("opentype"),
+}
+
+@font-face{
+    font-family:"metropolis-thin";
+    src: url("/fonts/metropolis/metropolis.thin.otf") format("opentype"),
+}
