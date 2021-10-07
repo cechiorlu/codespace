@@ -5,7 +5,7 @@ import type { RootState } from '../../app/store'
 type TTest = {
   title: string,
   language: string,
-  difficulty: 'hard' | 'easy' | 'intermediate'
+  difficulty: string,
   user: string
 }
 

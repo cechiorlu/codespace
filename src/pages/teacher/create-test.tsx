@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Flex, Box, Text, Image, Button, Link } from '@chakra-ui/react'
 import { Sidebar } from '../../components/Sidebar'
 import { Formik, Form, Field } from 'formik';
@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { SelectField } from '../../components/SelectField'
 import { InputField } from '../../components/InputField'
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { setUsername, setRole } from "../../features/Slices/userSlice";
+import { setTest } from "../../features/Slices/testSlice";
 
 
 
@@ -19,8 +19,8 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
     const dispatch = useAppDispatch()
     const user = useAppSelector(state => state.user.username)
     const tests = useAppSelector(state => state.test.tests)
-    let language = 'Javascript'
-    let difficulty = ''
+    const [language, setLanguage] = useState('javascript')
+    const [difficulty, setDifficulty] = useState('')
 
     return (
         <Flex>
@@ -74,9 +74,15 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
                             Creating a Test
                         </Text>
                         <Box w="500px" mt={6}>
-                            <Formik initialValues={{ title: "", language: "", stack: "", difficulty: "" }}
-                                onSubmit={async ({ stack, language, difficulty }) => {
-                                    console.log(stack, language, difficulty)
+                            <Formik initialValues={{ title: "" }}
+                                onSubmit={async ({ title }) => {
+                                    router.push('/teacher/course/add-test')
+                                    dispatch(setTest({
+                                        title,
+                                        language,
+                                        difficulty,
+                                        user
+                                    }))
                                 }}
 
                             >
@@ -95,7 +101,7 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
                                                 placeholder="Select language"
                                                 label="Language"
                                                 options={["python", "javascript", "go", "java", "cpp", "php", "sql"]}
-                                            // onChange={}
+                                                onChange={(e) => setLanguage(e.target.value)}
                                             />
                                         </Box>
                                         <Box mt={4}>
@@ -103,8 +109,8 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
                                                 value={difficulty}
                                                 placeholder="Difficulty"
                                                 label="Difficulty"
-                                                options={['Easy', 'Intermediate', 'Hard']}
-                                            // onChange={}
+                                                options={['easy', 'intermediate', 'hard']}
+                                                onChange={(e) => setDifficulty(e.target.value)}
                                             />
                                         </Box>
 
