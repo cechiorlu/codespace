@@ -11,13 +11,10 @@ interface InitialCodeProps {
 
 export const InitialCode: React.FC<InitialCodeProps> = ({ }) => {
     return (
-        <Flex direction="column">
+        <Flex direction="column" h="350px">
             <Box>
                 <CodeEditor height="300px" />
-
             </Box>
-
-            <Button>Run Code</Button>
             <Button>All Done</Button>
         </Flex>
     );

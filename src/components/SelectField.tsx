@@ -12,6 +12,7 @@ type SelectFieldProps = InputHTMLAttributes<HTMLSelectElement> & {
     label?: string;
     name: string;
     options?: Array<string>;
+    value: string;
     onChange?(evn: React.ChangeEvent<HTMLSelectElement>): void;
 };
 
@@ -19,7 +20,9 @@ type SelectFieldProps = InputHTMLAttributes<HTMLSelectElement> & {
 // 'error message stuff' => true
 
 export const SelectField: React.FC<SelectFieldProps> = ({
+    name,
     label,
+    value,
     options = [],
     onChange,
     size: _,
@@ -27,14 +30,13 @@ export const SelectField: React.FC<SelectFieldProps> = ({
 }) => {
 
 
-    const [field, { error }] = useField(props);
     return (
-        <FormControl isInvalid={!!error}>
-            {label ? <FormLabel htmlFor={field.name}>{label}</FormLabel> : null}
-            <Select icon={<TriangleDownIcon fontSize='1rem' />} {...field} {...props} id={field.name} onChange={onChange}>
+        <>
+            {label ? <FormLabel htmlFor={label}>{label}</FormLabel> : null}
+            <Select icon={<TriangleDownIcon fontSize='1rem' />}  {...props} id={name} value={value} onChange={onChange}>
                 {options.map((item, key) => {
                     const optionProps: React.OptionHTMLAttributes<HTMLOptionElement> = {};
-                    if (props.name === item) {
+                    if (value === item) {
                         optionProps.value = item;
                     }
                     return (
@@ -44,8 +46,6 @@ export const SelectField: React.FC<SelectFieldProps> = ({
                     );
                 })}
             </Select>
-            {error ? <FormErrorMessage>{error}</FormErrorMessage> : null}
-        </FormControl>
+        </>
     );
-};
-
+}

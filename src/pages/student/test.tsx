@@ -54,7 +54,7 @@ export const test: React.FC<testProps> = ({ }) => {
                         mt="20px"
                         p="20px"
                     >
-                        <Flex>
+                        <Flex justifyContent="space-between" alignItems="center" mb={4}>
                             <Text> Merging Two Sorted Lists </Text>
                             <Tag>Easy</Tag>
                         </Flex>

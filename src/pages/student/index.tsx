@@ -2,6 +2,9 @@ import React from 'react';
 import { Flex, Box, Text, Button, Image, Link } from '@chakra-ui/react'
 import { Sidebar } from '../../components/Sidebar'
 import Heatmap from '../../components/Heatmap'
+import { useRouter } from 'next/router'
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { setUsername, setRole } from "../../features/Slices/userSlice";
 
 
 interface studentDashboardProps {
@@ -9,6 +12,8 @@ interface studentDashboardProps {
 }
 
 export const studentDashboard: React.FC<studentDashboardProps> = ({ }) => {
+    const router = useRouter()
+    const user = useAppSelector(state => state.user.username)
 
     return (
         <Flex>
@@ -62,11 +67,14 @@ export const studentDashboard: React.FC<studentDashboardProps> = ({ }) => {
                         justifyContent="space-between"
                     >
                         <Flex w="100%" h="208px" bgColor="blue" p="20px">
-                            <Box>
-                                <Text>Hello Ifere</Text>
-                                <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis odio repudiandae ea, fugit atque sed reprehenderit impedit libero illo nisi alias. Placeat illum quia vero officia atque ab consequuntur officiis!</Text>
-                                <Button>Take Test</Button>
-                            </Box>
+                            <Flex direction="column" justifyContent="space-between">
+                                <Text color="white">{user}</Text>
+                                <Text color="white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis odio repudiandae ea, fugit atque sed reprehenderit impedit libero illo nisi alias. Placeat illum quia vero officia atque ab consequuntur officiis!</Text>
+                                <Button w="240px"
+                                    variant="outline"
+                                    onClick={() => router.push('/student/select-test')}
+                                >Take Test</Button>
+                            </Flex>
                             <Image src='/images/mati.png' w="336px" h="234px" style={{ transform: "translateY(-48px)" }} />
                         </Flex>
 

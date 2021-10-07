@@ -11,13 +11,11 @@ interface VerificationCodeProps {
 
 export const VerificationCode: React.FC<VerificationCodeProps> = ({ }) => {
     return (
-        <Flex direction="column">
+        <Flex direction="column" h="350px">
             <Box>
                 <CodeEditor height="300px" />
 
             </Box>
-
-            <Button>Run Code</Button>
             <Button>All Done</Button>
         </Flex>
     );

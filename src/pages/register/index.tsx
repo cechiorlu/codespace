@@ -1,8 +1,14 @@
 import React from 'react';
 import { Flex, Box, Link, Text, Button, Image, Select } from '@chakra-ui/react'
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import { InputField } from '../../components/InputField';
 import { SelectField } from '../../components/SelectField'
+import { useRouter } from 'next/router'
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { setUsername, setRole } from "../../features/Slices/userSlice";
+
+
+
 
 
 interface signupProps {
@@ -10,6 +16,11 @@ interface signupProps {
 }
 
 export const signup: React.FC<signupProps> = ({ }) => {
+    const router = useRouter()
+    const dispatch = useAppDispatch()
+    const role = useAppSelector(state => state.user.role)
+
+
     return (
         <Flex
             height='100vh'
@@ -45,8 +56,9 @@ export const signup: React.FC<signupProps> = ({ }) => {
 
                     <Box>
                         <Formik initialValues={{ email: "", name: "", role: "" }}
-                            onSubmit={async ({ email, name, role }) => {
-                                console.log(name, email, role)
+                            onSubmit={async ({ email, name }) => {
+                                dispatch(setUsername(name))
+                                role == 'Student' ? router.push('/student') : router.push('/teacher')
                             }}
 
                         >
@@ -67,15 +79,16 @@ export const signup: React.FC<signupProps> = ({ }) => {
                                         />
                                     </Box>
                                     <Box mt={4}>
-                                        <SelectField name="role"
+                                        <SelectField value={role} name="role"
                                             placeholder="Select role"
                                             label="Role"
                                             options={['Student', 'Teacher']}
+                                            onChange={(e) => dispatch(setRole(e.target.value))}
                                         />
                                     </Box>
 
                                     <Button
-                                        mt={4}
+                                        mt={6}
                                         type="submit"
                                         isLoading={isSubmitting}
                                         w='280px'

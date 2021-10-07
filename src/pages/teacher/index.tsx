@@ -4,7 +4,12 @@ import {
     Thead, Tbody, Tr, Th, Td, TableCaption, Link
 } from '@chakra-ui/react'
 import { Sidebar } from '../../components/Sidebar'
-import { BellIcon, ArrowRightIcon } from '@chakra-ui/icons'
+import { ArrowRightIcon } from '@chakra-ui/icons'
+import { useRouter } from 'next/router'
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { setUsername, setRole } from "../../features/Slices/userSlice";
+
+
 
 
 
@@ -13,6 +18,11 @@ interface teacherDashboardProps {
 }
 
 export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
+    const router = useRouter()
+    const dispatch = useAppDispatch()
+    const user = useAppSelector(state => state.user.username)
+    const courses = useAppSelector(state => state.courses.courses)
+
     return (
         <Flex>
             <Sidebar active="home" />
@@ -62,37 +72,37 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                         mt="40px"
                         justifyContent="space-between"
                     >
-                        <Flex w="100%" h="208px" bgColor="blue" p="20px">
-                            <Box>
-                                <Text>Hello Ifere</Text>
-                                <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis odio repudiandae ea, fugit atque sed reprehenderit impedit libero illo nisi alias. Placeat illum quia vero officia atque ab consequuntur officiis!</Text>
+                        <Flex w="100%" h="208px" bgColor="blue" p="20px" justifyContent="space-between">
+                            <Flex justifyContent="space-between" direction="column">
+                                <Text>Hello {user}</Text>
+                                <Text color="white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis odio repudiandae ea, fugit atque sed reprehenderit impedit libero illo nisi alias. Placeat illum quia vero officia atque ab consequuntur officiis!</Text>
                                 <Flex>
-                                    <Button>Create Course</Button>
+                                    <Button variant="outline">Create Course</Button>
                                     <Button>Create Test</Button>
                                 </Flex>
-                            </Box>
+                            </Flex>
                             <Image src='/images/teacher.png' w="336px" h="234px" style={{ transform: "translateY(-48px)" }} />
                         </Flex>
 
                         <Box>
-                            <Flex w="100%" justifyContent="space-between">
+                            <Flex w="100%" justifyContent="space-between" my={4}>
                                 <Text>Created courses</Text>
                                 <Text>View more <ArrowRightIcon /></Text>
                             </Flex>
                             <Flex w="100%" justifyContent="space-between" mt={2}>
                                 <Box h="200px" px="10px" py="15px" w="49%" border="2px solid" borderColor="stroke">
-                                    <Flex>
+                                    <Flex justifyContent="space-between" mb={4}>
                                         <Text>Course Title</Text>
-                                        <Text>Course level: </Text>
+                                        <Text>Course level: difficulty</Text>
                                     </Flex>
                                     <Text>Front End Development</Text>
                                     <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aut mollitia laborum fugiat quibusdam. Deleniti, eius.</Text>
 
                                 </Box>
                                 <Box h="200px" px="10px" py="15px" w="49%" border="2px solid" borderColor="stroke">
-                                    <Flex>
+                                    <Flex justifyContent="space-between" mb={4}>
                                         <Text>Course Title</Text>
-                                        <Text>Course level: </Text>
+                                        <Text>Course level: difficulty</Text>
                                     </Flex>
                                     <Text>Front End Development</Text>
                                     <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aut mollitia laborum fugiat quibusdam. Deleniti, eius.</Text>
@@ -101,18 +111,18 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                             </Flex>
                             <Flex w="100%" justifyContent="space-between" mt={2}>
                                 <Box h="200px" px="10px" py="15px" w="49%" border="2px solid" borderColor="stroke">
-                                    <Flex>
+                                    <Flex justifyContent="space-between" mb={4}>
                                         <Text>Course Title</Text>
-                                        <Text>Course level: </Text>
+                                        <Text>Course level: difficulty</Text>
                                     </Flex>
                                     <Text>Front End Development</Text>
                                     <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aut mollitia laborum fugiat quibusdam. Deleniti, eius.</Text>
 
                                 </Box>
                                 <Box h="200px" px="10px" py="15px" w="49%" border="2px solid" borderColor="stroke">
-                                    <Flex>
+                                    <Flex justifyContent="space-between" mb={4}>
                                         <Text>Course Title</Text>
-                                        <Text>Course level: </Text>
+                                        <Text>Course level: difficulty</Text>
                                     </Flex>
                                     <Text>Front End Development</Text>
                                     <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aut mollitia laborum fugiat quibusdam. Deleniti, eius.</Text>
@@ -122,7 +132,7 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                         </Box>
 
                         <Box>
-                            <Flex w="100%" justifyContent="space-between">
+                            <Flex w="100%" justifyContent="space-between" my={4}>
                                 <Text>Test Performance</Text>
                                 <Text>View More <ArrowRightIcon /></Text>
                             </Flex>
@@ -137,12 +147,6 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                                         </Tr>
                                     </Thead>
                                     <Tbody>
-                                        <Tr>
-                                            <Td>Merging two sorted lists</Td>
-                                            <Td>1000</Td>
-                                            <Td>70%</Td>
-                                            <Td>30%</Td>
-                                        </Tr>
                                         <Tr>
                                             <Td>Merging two sorted lists</Td>
                                             <Td>1000</Td>

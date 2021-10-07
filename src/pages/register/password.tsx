@@ -66,7 +66,7 @@ export const password: React.FC<passwordProps> = ({ }) => {
                                         />
                                     </Box>
                                     <Button
-                                        mt={4}
+                                        mt={6}
                                         type="submit"
                                         isLoading={isSubmitting}
                                         w="240px"

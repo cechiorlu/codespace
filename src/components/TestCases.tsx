@@ -11,7 +11,7 @@ interface TestCasesProps {
 
 export const TestCases: React.FC<TestCasesProps> = ({}) => {
     return (
-        <Flex direction="column">
+        <Flex direction="column" h="350px">
             <Box>
                 
             </Box>

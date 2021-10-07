@@ -2,6 +2,8 @@ import React from 'react';
 import { Flex, Box, Link, Text, Button, Image, Select } from '@chakra-ui/react'
 import { Formik, Form, Field } from 'formik';
 import { InputField } from '../components/InputField';
+import { useRouter } from 'next/router'
+
 
 
 interface loginProps {
@@ -9,6 +11,8 @@ interface loginProps {
 }
 
 export const login: React.FC<loginProps> = ({ }) => {
+    const router = useRouter()
+
     return (
         <Flex
             height='100vh'
@@ -26,7 +30,7 @@ export const login: React.FC<loginProps> = ({ }) => {
                 pt="30px"
             >
                 <Text> Logo </Text>
-                <Text>Don't have an account?  <Link>Sign Up</Link></Text>
+                <Text>Don't have an account?  <Link href="/register">Sign Up</Link></Text>
             </Flex>
             <Flex
                 width='100%'
@@ -44,7 +48,8 @@ export const login: React.FC<loginProps> = ({ }) => {
                     <Box>
                         <Formik initialValues={{ email: "", password: "" }}
                             onSubmit={async ({ email, password }) => {
-                                console.log(password, email)
+                                // router.push(role === 'student' ? '/student' : '/teacher')
+                                router.push('/teacher')
                             }}
 
                         >

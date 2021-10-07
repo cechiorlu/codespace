@@ -4,15 +4,15 @@ import {
     Tabs, TabList, TabPanels, Tab, TabPanel
 } from '@chakra-ui/react'
 import { BellIcon, ArrowLeftIcon } from '@chakra-ui/icons'
-import { Sidebar } from '../../components/Sidebar'
+import { Sidebar } from '../../../components/Sidebar'
 import { Formik, Form, Field } from 'formik';
 import { useRouter } from 'next/router'
-import { SelectField } from '../../components/SelectField'
-import { InputField } from '../../components/InputField'
-import FunctionSignature from '../../components/FunctionSignature'
-import InitialCode from '../../components/InitialCode';
-import TestCases from '../../components/TestCases'
-import VerificationCode from '../../components/VerificationCode'
+import { SelectField } from '../../../components/SelectField'
+import { InputField } from '../../../components/InputField'
+import FunctionSignature from '../../../components/FunctionSignature'
+import InitialCode from '../../../components/InitialCode';
+import TestCases from '../../../components/TestCases'
+import VerificationCode from '../../../components/VerificationCode'
 
 interface addTestProps {
 
@@ -25,7 +25,6 @@ export const addTest: React.FC<addTestProps> = ({ }) => {
         <Flex>
             <Sidebar active="home" />
             <Flex
-                height='100vh'
                 width='100%'
                 direction="column"
                 justifyContent="flex-start"
@@ -65,12 +64,28 @@ export const addTest: React.FC<addTestProps> = ({ }) => {
                     {/* right menu */}
                     <Flex direction="column"
                         width="67.5%"
-                        mt="40px"
+                        mt="20px"
                         justifyContent="space-between"
                     >
-                        <Text>
-                            Creating a Test
-                        </Text>
+                        <Box w="100%" h="450px">
+                            <Flex w="100%" justifyContent="space-between" alignItems="center">
+                                <Text>Lecture 1 </Text>
+                                <Button>Add Topic</Button>
+                            </Flex>
+                            <Box w="100%" p={2}>
+                                <Flex><Text>Topic 1</Text></Flex>
+                                <Flex w="100%" direction="column" justifyContent="flex-start">
+                                    <InputField name="course title" label="Course Title" placeholder="Enter Course Title" />
+                                    <InputField name="lecture video" label="Lecture Video" placeholder="Upload Lecture Video" />
+                                    <InputField name="notes" label="Notes" placeholder="Some Explanation" />
+                                </Flex>
+                            </Box>
+                            <Box w="100%" p={2} mt={4}>
+                                <Flex><Text>Instructions</Text></Flex>
+                                <InputField name="instructions" label="Instructions" placeholder="Some Explanations"/>
+                            </Box>
+                        </Box>
+
                         <Box>
                             <Tabs>
                                 <TabList>

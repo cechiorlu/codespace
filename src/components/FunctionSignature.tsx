@@ -10,7 +10,7 @@ interface FunctionSignatureProps {
 
 export const FunctionSignature: React.FC<FunctionSignatureProps> = ({ }) => {
     return (
-        <Box>
+        <Box h="350px">
             <Formik initialValues={{ returns: "", language: "", stack: "", difficulty: "" }}
                 onSubmit={async ({ stack, language, difficulty }) => {
                     console.log(stack, language, difficulty)

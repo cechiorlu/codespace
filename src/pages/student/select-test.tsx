@@ -3,8 +3,11 @@ import { Flex, Box, Text, Image, Button, Link } from '@chakra-ui/react'
 import { BellIcon, ArrowLeftIcon } from '@chakra-ui/icons'
 import { Sidebar } from '../../components/Sidebar'
 import { Formik, Form, Field } from 'formik';
-import { useRouter } from 'next/router'
 import { SelectField } from '../../components/SelectField'
+import { useRouter } from 'next/router'
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { setCourse, setLanguage } from '../../features/Slices/testSlice';
+
 
 interface selectTestProps {
 
@@ -12,7 +15,10 @@ interface selectTestProps {
 
 export const selectTest: React.FC<selectTestProps> = ({ }) => {
     const router = useRouter()
-
+    const dispatch = useAppDispatch()
+    const course = useAppSelector(state => state.test.course)
+    const language = useAppSelector(state => state.test.language)
+    
     return (
         <Flex>
             <Sidebar active="home" />
@@ -61,27 +67,32 @@ export const selectTest: React.FC<selectTestProps> = ({ }) => {
                         justifyContent="flex-start"
                     >
                         <Text>
-                            Select your stack and language
+                            Select course and language
                         </Text>
                         <Box w="500px" mt={6}>
-                            <Formik initialValues={{ stack: "", language: "", difficulty: "" }}
-                                onSubmit={async ({ stack, language, difficulty }) => {
-                                    console.log(stack, language, difficulty)
+                            <Formik initialValues={{  }}
+                                onSubmit={async ({  }) => {
+                                    console.log(course, language)
+                                    router.push('/student/test')
                                 }}
 
                             >
                                 {({ isSubmitting }) => (
                                     <Form>
                                         <SelectField name="class"
+                                            value={course}
                                             placeholder="Select class"
                                             label="Class"
                                             options={['EEG501', 'EEG502']}
+                                            onChange={(e) => dispatch(setCourse(e.target.value))}
                                         />
                                         <Box mt={4}>
                                             <SelectField name="language"
+                                                value={language}
                                                 placeholder="Select language"
                                                 label="Language"
-                                                options={['Javascript', 'Python', 'Golang', 'Java', 'C++']}
+                                                options={["python", "javascript", "go", "java", "cpp", "php", "sql"]}
+                                                onChange={(e) => dispatch(setLanguage(e.target.value))}
                                             />
                                         </Box>
 

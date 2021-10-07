@@ -19,6 +19,8 @@
     "@codemirror/stream-parser": "^0.19.2",
     "@emotion/react": "11.1.5",
     "@emotion/styled": "11.1.5",
+    "@reduxjs/toolkit": "^1.6.2",
+    "@types/react-redux": "^7.1.18",
     "@uiw/react-codemirror": "^4.0.6",
     "formik": "^2.2.9",
     "framer-motion": "^4.0.3",
@@ -28,6 +30,7 @@
     "react-compound-timer": "^1.2.0",
     "react-dom": "^17.0.2",
     "react-gauge-chart": "^0.4.0",
+    "react-redux": "^7.2.5",
     "react-tooltip": "^4.2.21"
   },
   "devDependencies": {

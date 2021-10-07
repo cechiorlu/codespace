@@ -1,11 +1,14 @@
 import React from 'react';
 import { Flex, Box, Text, Image, Button, Link } from '@chakra-ui/react'
-import { BellIcon, ArrowLeftIcon } from '@chakra-ui/icons'
 import { Sidebar } from '../../components/Sidebar'
 import { Formik, Form, Field } from 'formik';
 import { useRouter } from 'next/router'
 import { SelectField } from '../../components/SelectField'
 import { InputField } from '../../components/InputField'
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { setUsername, setRole } from "../../features/Slices/userSlice";
+
+
 
 interface createTestProps {
 
@@ -13,6 +16,11 @@ interface createTestProps {
 
 export const createTest: React.FC<createTestProps> = ({ }) => {
     const router = useRouter()
+    const dispatch = useAppDispatch()
+    const user = useAppSelector(state => state.user.username)
+    const tests = useAppSelector(state => state.test.tests)
+    let language = 'Javascript'
+    let difficulty = ''
 
     return (
         <Flex>
@@ -33,7 +41,7 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
                     borderBottom="2px solid #F0F0F0"
                 >
                     <Button variant='link' onClick={() => router.back()}>
-                        <Image src="/images/arrow-left.png" w="13px" h="12px" /> Go back
+                        <Image src="/images/arrow-left.png" w="13px" h="12px" mr={2}/> Go back
                     </Button>
                     <Link href="">
                         <Image src="/images/Bellicon.png" w="18px" h="21.6px" />
@@ -83,16 +91,20 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
                                         />
                                         <Box mt={4}>
                                             <SelectField name="language"
+                                            value={language}
                                                 placeholder="Select language"
                                                 label="Language"
-                                                options={['Javascript', 'Python', 'Golang', 'Java', 'C++']}
+                                                options={["python", "javascript", "go", "java", "cpp", "php", "sql"]}
+                                                onChange={}
                                             />
                                         </Box>
                                         <Box mt={4}>
                                             <SelectField name="difficulty"
+                                            value={difficulty}
                                                 placeholder="Difficulty"
                                                 label="Difficulty"
                                                 options={['Easy', 'Intermediate', 'Hard']}
+                                                onChange={}
                                             />
                                         </Box>
 

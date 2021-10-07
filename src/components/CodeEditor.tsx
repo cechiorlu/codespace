@@ -18,6 +18,7 @@ import { pascal } from '@codemirror/legacy-modes/mode/pascal';
 import { r } from '@codemirror/legacy-modes/mode/r';
 import CodeMirror, { ReactCodeMirrorProps, Extension } from '@uiw/react-codemirror';
 import { Select } from './Select';
+import { SelectField } from './SelectField';
 
 
 interface CodeEditorProps {
