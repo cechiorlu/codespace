@@ -41,7 +41,7 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
                     borderBottom="2px solid #F0F0F0"
                 >
                     <Button variant='link' onClick={() => router.back()}>
-                        <Image src="/images/arrow-left.png" w="13px" h="12px" mr={2}/> Go back
+                        <Image src="/images/arrow-left.png" w="13px" h="12px" mr={2} /> Go back
                     </Button>
                     <Link href="">
                         <Image src="/images/Bellicon.png" w="18px" h="21.6px" />
@@ -91,20 +91,20 @@ export const createTest: React.FC<createTestProps> = ({ }) => {
                                         />
                                         <Box mt={4}>
                                             <SelectField name="language"
-                                            value={language}
+                                                value={language}
                                                 placeholder="Select language"
                                                 label="Language"
                                                 options={["python", "javascript", "go", "java", "cpp", "php", "sql"]}
-                                                onChange={}
+                                            // onChange={}
                                             />
                                         </Box>
                                         <Box mt={4}>
                                             <SelectField name="difficulty"
-                                            value={difficulty}
+                                                value={difficulty}
                                                 placeholder="Difficulty"
                                                 label="Difficulty"
                                                 options={['Easy', 'Intermediate', 'Hard']}
-                                                onChange={}
+                                            // onChange={}
                                             />
                                         </Box>
 
