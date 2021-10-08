@@ -74,11 +74,11 @@ export const teacherDashboard: React.FC<teacherDashboardProps> = ({ }) => {
                     >
                         <Flex w="100%" h="208px" bgColor="blue" p="20px" justifyContent="space-between">
                             <Flex justifyContent="space-between" direction="column">
-                                <Text>Hello {user}</Text>
+                                <Text color="white">Hello {user}</Text>
                                 <Text color="white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis odio repudiandae ea, fugit atque sed reprehenderit impedit libero illo nisi alias. Placeat illum quia vero officia atque ab consequuntur officiis!</Text>
                                 <Flex>
-                                    <Button variant="outline">Create Course</Button>
-                                    <Button>Create Test</Button>
+                                    <Button  onClick={() => router.push('/teacher/course/')} variant="outline">Create Course</Button>
+                                    <Button onClick={() => router.push('/teacher/course/add-test')}>Create Test</Button>
                                 </Flex>
                             </Flex>
                             <Image src='/images/teacher.png' w="336px" h="234px" style={{ transform: "translateY(-48px)" }} />
