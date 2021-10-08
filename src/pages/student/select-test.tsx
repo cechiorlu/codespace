@@ -6,7 +6,7 @@ import { Formik, Form, Field } from 'formik';
 import { SelectField } from '../../components/SelectField'
 import { useRouter } from 'next/router'
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { setCourse, setLanguage } from '../../features/Slices/testSlice';
+import { setTest } from '../../features/Slices/testSlice';
 
 
 interface selectTestProps {
@@ -16,8 +16,8 @@ interface selectTestProps {
 export const selectTest: React.FC<selectTestProps> = ({ }) => {
     const router = useRouter()
     const dispatch = useAppDispatch()
-    const course = useAppSelector(state => state.test.course)
-    const language = useAppSelector(state => state.test.language)
+    // const course = useAppSelector(state => state.test.course)
+    // const language = useAppSelector(state => state.test.language)
     
     return (
         <Flex>
@@ -72,14 +72,14 @@ export const selectTest: React.FC<selectTestProps> = ({ }) => {
                         <Box w="500px" mt={6}>
                             <Formik initialValues={{  }}
                                 onSubmit={async ({  }) => {
-                                    console.log(course, language)
+                                    // console.log(course, language)
                                     router.push('/student/test')
                                 }}
 
                             >
                                 {({ isSubmitting }) => (
                                     <Form>
-                                        <SelectField name="class"
+                                        {/* <SelectField name="class"
                                             value={course}
                                             placeholder="Select class"
                                             label="Class"
@@ -94,7 +94,7 @@ export const selectTest: React.FC<selectTestProps> = ({ }) => {
                                                 options={["python", "javascript", "go", "java", "cpp", "php", "sql"]}
                                                 onChange={(e) => dispatch(setLanguage(e.target.value))}
                                             />
-                                        </Box>
+                                        </Box> */}
 
                                         <Button
                                             mt={9}
