@@ -15,7 +15,7 @@ export const InitialCode: React.FC<InitialCodeProps> = ({ }) => {
             <Box>
                 <CodeEditor height="300px" />
             </Box>
-            <Button>All Done</Button>
+            <Button w="240px" mt={4} p={2}>All Done</Button>
         </Flex>
     );
 }

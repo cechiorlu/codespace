@@ -16,8 +16,6 @@ type SelectFieldProps = InputHTMLAttributes<HTMLSelectElement> & {
     onChange?(evn: React.ChangeEvent<HTMLSelectElement>): void;
 };
 
-// '' => false
-// 'error message stuff' => true
 
 export const SelectField: React.FC<SelectFieldProps> = ({
     name,
@@ -33,7 +31,7 @@ export const SelectField: React.FC<SelectFieldProps> = ({
     return (
         <>
             {label ? <FormLabel htmlFor={label}>{label}</FormLabel> : null}
-            <Select icon={<TriangleDownIcon fontSize='1rem' />}  {...props} id={name} value={value} onChange={onChange}>
+            <Select icon={<TriangleDownIcon fontSize='0.8rem' />}  {...props} id={name} value={value} onChange={onChange}>
                 {options.map((item, key) => {
                     const optionProps: React.OptionHTMLAttributes<HTMLOptionElement> = {};
                     if (value === item) {

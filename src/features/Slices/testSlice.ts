@@ -1,12 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../app/store'
 
+type Tparams = {
+name: string,
+type: 'string' | 'number' | 'list' | 'dictionary',
+value: any
+}
 
 type TTest = {
   title: string,
   language: string,
   difficulty: string,
-  user: string
+  user?: string,
+  parameters?: Tparams[]
 }
 
 interface ITests {
