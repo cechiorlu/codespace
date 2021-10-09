@@ -1,14 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
 import testReducer from '../features/Slices/testSlice'
 import userReducer from '../features/Slices/userSlice'
-import coursesReducer from '../features/Slices/coursesSlices'
+import coursesReducer from '../features/Slices/coursesSlice'
+import codeReducer from '../features/Slices/codeSlice'
+import languageReducer from '../features/Slices/languageSlice'
 
 
 export const store = configureStore({
     reducer: {
         test: testReducer,
         user: userReducer,
-        courses: coursesReducer
+        courses: coursesReducer,
+        codeSolution: codeReducer,
+        language: languageReducer 
     }
 })
 

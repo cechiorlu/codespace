@@ -9,7 +9,7 @@ export const Select = ({ label = '', value, options = [], onChange }: SelectProp
   return (
     <label>
       {label && <span>{label}：</span>}
-      <select value={value} onChange={onChange}>
+      <select value={value} onChange={onChange} style={{padding:"5px"}}>
         {options.map((item, key) => {
           const optionProps: React.OptionHTMLAttributes<HTMLOptionElement> = {};
           if (value === item) {

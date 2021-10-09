@@ -10,6 +10,7 @@ import {
     Button,
     Flex
 } from "@chakra-ui/react"
+import { useRouter } from 'next/router'
 
 type SubmitCodeProps = {
     isOpen: boolean;
@@ -18,6 +19,7 @@ type SubmitCodeProps = {
 };
 
 export const SubmitCode: React.FC<SubmitCodeProps> = ({ isOpen, onClose }) => {
+    const router = useRouter()
 
     return (
         <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
@@ -34,7 +36,10 @@ export const SubmitCode: React.FC<SubmitCodeProps> = ({ isOpen, onClose }) => {
 
                 <ModalFooter>
                     <Flex width="100%" >
-                        <Button >
+                        <Button onClick={() => {
+                            alert('Attempt submitted')
+                            router.push('/student')
+                            }} >
                             Submit Code
                         </Button>
                         <Button variant="ghost" onClick={onClose}>
