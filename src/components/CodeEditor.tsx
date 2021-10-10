@@ -37,9 +37,9 @@ const langs: Record<string, any> = {
     // html,
     // css,
     python,
-    sql,
-    mysql: () => sql({ dialect: MySQL }),
-    pgsql: () => sql({ dialect: PostgreSQL }),
+    // sql,
+    // mysql: () => sql({ dialect: MySQL }),
+    // pgsql: () => sql({ dialect: PostgreSQL }),
     java,
     cpp,
     // php,
@@ -52,13 +52,13 @@ const langs: Record<string, any> = {
 };
 
 const langId = {
-    javascript: 26,
-    cpp: 12,
-    java: 25,
-    go: 22,
-    python: 38,
-    sql: 43,
-    vb: 46
+    javascript: 63,
+    cpp: 76,
+    java: 62,
+    go: 60,
+    python: 71,
+    sql: 82,
+    vb: 84
 }
 
 const themeOptions = ['dark', 'light'];
