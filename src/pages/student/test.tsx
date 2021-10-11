@@ -5,6 +5,7 @@ import { SubmitCode } from "../../components/Modals";
 import { useRouter } from 'next/router'
 import StopTimer from '../../components/StopTimer'
 import CodeEditor from '../../components/CodeEditor'
+import Compiler from '../../components/Compiler'; '../../components/Compiler'
 
 interface testProps {
 
@@ -37,11 +38,10 @@ export const test: React.FC<testProps> = ({ }) => {
                     borderBottom="2px solid #F0F0F0"
                 >
                     <Button variant='link' onClick={() => router.back()}>
-                        <Image src="/images/arrow-left.png" w="13px" h="12px" /> Go back
+                        <Image src="/images/arrow-left.png" w="13px" h="12px" mr={2} /> Go back
                     </Button>
-                    <Flex w="175px" justifyContent="space-between">
-                        <Text>Time Remaining  :</Text>
-                        <StopTimer initialTime={60 * 60 * 2500} />
+                    <Flex w="180px">
+                        <Text>Time Remaining  :  <StopTimer initialTime={60 * 60 * 2500} /></Text>
                     </Flex>
                 </Flex>
 
@@ -99,22 +99,20 @@ export const test: React.FC<testProps> = ({ }) => {
                         width="67.5%"
                         mt="40px"
                         justifyContent="flex-start"
-                        bgColor="stroKe"
                     >
                         <SubmitCode isOpen={isOpen} onClose={onClose} />
                         <Box bgColor="white">
-                            <Box w="100%" h="420px">
-                                <CodeEditor height="400px"/>
+                            <Box w="100%">
+                                <Compiler />
+                                {/* <CodeEditor height="400px"/> */}
                             </Box>
                             <Flex alignItems="center" justifyContent="space-between" mt={4}>
                                 <Flex>
                                     <Text pr={2}>Test Created by: </Text>
                                     <Text> Prof. Adeyemi </Text>
                                 </Flex>
-                                <Flex>
-                                    <Button variant='ghost'>Run code</Button>
-                                    <Button onClick={onOpen}>Submit code</Button>
-                                </Flex>
+                                <Button onClick={onOpen}>Submit code</Button>
+
                             </Flex>
                         </Box>
                     </Flex>
